@@ -1,0 +1,20 @@
+#binary search
+def search(arr,low,up,pivot):
+    while(up>=low):
+        mid=low+(up-low)//2
+        if(arr[mid]==pivot):
+            return mid
+        elif(pivot<arr[mid]):
+            return search(arr,low,mid-1,pivot)
+        else:
+            return search(arr,mid+1,up,pivot)
+low=0
+up=int(input("enter the size of array"))
+arr=[]
+for i in range(up):
+    temp=int(input("enter the array element"))
+    arr.append(temp)
+pivot=int(input("enter the element to search"))
+a=search(arr,low,up,pivot)
+print("the index at which pivot is present: ",a)
+    
